@@ -1,26 +1,18 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Lighthouse keeper
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+Keep you website under budget.
 
-## Install
+https://izifortune.github.io/lighthouse-keeper/
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
-```
+Lighthouse Keeper helps you creating performance budgets based on
+lighthouse reports audits from Google. You just select all the
+reports that you are interested and your budget will be calculated.
+No file is actually uploaded!
 
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
+The project uses https://developers.google.com/chart for generating
+charts based upon lighthouse reports.
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
+Simply select the reports and the budget and a visualization chart
+will be displayed.
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+This project is based on [gatsbyjs](https://www.gatsbyjs.org/)
