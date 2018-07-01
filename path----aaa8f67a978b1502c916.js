@@ -1,2 +1,0 @@
-webpackJsonp([60335399758886],{149:function(e,t){e.exports={data:{site:{siteMetadata:{title:"Lighthouse Keeper",description:"\nLighthouse Keeper helps you creating performance budgets based on\nlighthouse reports audits from Google. You just select all the\nreports that you are interested and your budget will be calculated.\nNo file is actually uploaded!"}}},layoutContext:{}}}});
-//# sourceMappingURL=path----aaa8f67a978b1502c916.js.map
