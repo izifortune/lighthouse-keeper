@@ -19,7 +19,7 @@ export const getLegendNodes = chartSelector =>
     document.querySelectorAll(`${chartSelector} text[text-anchor="start"]`)
   )
 export const domainTransducer = compose(
-  pluck('url'),
+  pluck('finalUrl'),
   map(
     pipe(
       split('/'),

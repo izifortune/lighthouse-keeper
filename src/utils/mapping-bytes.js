@@ -11,7 +11,7 @@ const totalByteWeight = pipe(
 )
 export const totalByteWeightExtendedInfo = pipe(
   totalByteWeight,
-  path(['extendedInfo', 'value', 'results'])
+  path(['details', 'items'])
 )
 
 export const totalByteWeightValue = pipe(
@@ -22,7 +22,7 @@ export const totalByteWeightValue = pipe(
 const endsJS = test(/\.js$/g)
 const endsCSS = test(/\.css$/g)
 const endsJSON = test(/\.json$/g)
-const endsIMG = test(/\.(png|jpg|jpeg|svg|webp)/g)
+const endsIMG = test(/\.(png|jpg|jpeg|svg|webp|gif)/g)
 const endsFONT = test(/\.(ttf|woff|woff2|otf|eot)/g)
 const urlEndsJS = pipe(
   prop('url'),

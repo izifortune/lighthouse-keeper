@@ -4,6 +4,8 @@ import { addDownloadImage, show, resizeChart } from './utils'
 
 export default function drawChartScore(idSelector, reports) {
   // Create the data table.
+  //
+  console.log(...dataScore(reports));
   const data = window.google.visualization.arrayToDataTable([
     [...dataUrl(reports), 'Budget'],
     ...dataScore(reports),
