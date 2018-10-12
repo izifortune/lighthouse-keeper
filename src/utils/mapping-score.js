@@ -1,29 +1,24 @@
-import { pipe, find, propEq, prop } from 'ramda'
+import { pipe, path, prop } from 'ramda'
 
-const reportCategories = prop('reportCategories')
+const reportCategories = prop('categories')
 
 export const reportCategoriesPerfScore = pipe(
   reportCategories,
-  find(propEq('id', 'performance')),
-  prop('score')
+  path(['performance', 'score'])
 )
 export const reportCategoriesPWAScore = pipe(
   reportCategories,
-  find(propEq('id', 'pwa')),
-  prop('score')
+  path(['pwa', 'score'])
 )
 export const reportCategoriesAccessibilityScore = pipe(
   reportCategories,
-  find(propEq('id', 'accessibility')),
-  prop('score')
+  path(['accessibility', 'score'])
 )
 export const reportCategoriesBestpracticeScore = pipe(
   reportCategories,
-  find(propEq('id', 'best-practices')),
-  prop('score')
+  path(['best-practices', 'score'])
 )
 export const reportCategoriesSEOScore = pipe(
   reportCategories,
-  find(propEq('id', 'seo')),
-  prop('score')
+  path(['seo', 'score'])
 )

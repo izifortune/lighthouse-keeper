@@ -32,6 +32,7 @@ class IndexPage extends React.Component {
         drawChartBytes('chart_bytes', read)
         drawChartTimings('chart_timings', read)
       } catch (e) {
+        console.error(e)
         hide('#charts')
         show('#parseError')
       }
