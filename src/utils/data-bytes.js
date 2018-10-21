@@ -3,9 +3,10 @@ import { map, pipe, divide, __ } from 'ramda'
 import {
   totalByteWeightJS,
   totalByteWeightCSS,
-  totalByteWeightJSON,
+  totalByteWeightXHR,
   totalByteWeightIMG,
   totalByteWeightFONT,
+  totalByteWeightDocument,
   totalByteWeightValue,
 } from './mapping-bytes'
 import { minList, off } from './utils'
@@ -22,6 +23,13 @@ export const dataBytes = reports => {
   const listBytes = map(
     pipe(
       totalByteWeightValue,
+      toKb
+    ),
+    reports
+  )
+  const listTotalDocument = map(
+    pipe(
+      totalByteWeightDocument,
       toKb
     ),
     reports
@@ -54,9 +62,9 @@ export const dataBytes = reports => {
     ),
     reports
   )
-  const listTotalJSON = map(
+  const listTotalXHR = map(
     pipe(
-      totalByteWeightJSON,
+      totalByteWeightXHR,
       toKb
     ),
     reports
@@ -67,15 +75,17 @@ export const dataBytes = reports => {
   const budgetCSS = budget(listTotalCSS)
   const budgetIMG = budget(listTotalIMG)
   const budgetFont = budget(listTotalFONT)
-  const budgetJSON = budget(listTotalJSON)
+  const budgetXHR = budget(listTotalXHR)
+  const budgetDocument = budget(listTotalDocument)
 
   return [
     [`Total Size\n ${budgetBytes}`, ...listBytes, budgetBytes],
+    [`Total Document\n ${budgetDocument}`, ...listTotalDocument, budgetDocument],
     [`Total JS\n ${budgetJS}`, ...listTotalJS, budgetJS],
     [`Total CSS\n ${budgetCSS}`, ...listTotalCSS, budgetCSS],
     [`Total IMG\n ${budgetIMG}`, ...listTotalIMG, budgetIMG],
     [`Total Font\n ${budgetFont}`, ...listTotalFONT, budgetFont],
-    [`Total JSON\n ${budgetJSON}`, ...listTotalJSON, budgetJSON],
+    [`Total XHR\n ${budgetXHR}`, ...listTotalXHR, budgetXHR],
   ]
 }
 
