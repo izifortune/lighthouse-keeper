@@ -1,4 +1,4 @@
-import { propEq, filter, path, pipe, pluck, prop, sum, test } from 'ramda'
+import { propEq, filter, path, pipe, pluck, prop, sum } from 'ramda'
 import { audits } from './mapping-generic'
 import NetworkRequest from 'lighthouse/lighthouse-core/lib/network-request';
 
