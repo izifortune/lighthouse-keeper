@@ -78,5 +78,5 @@ export const totalByteWeightFONT = pipe(
 
 export const numberOfRequests = pipe(
   audits,
-  path(['total-byte-weight', 'extendedInfo', 'value', 'totalCompletedRequests'])
+  path(['network-requests', 'rawValue'])
 )
