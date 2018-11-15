@@ -27,7 +27,6 @@ class IndexPage extends React.Component {
       try {
         hide('#parseError')
         show('#charts')
-        console.log(read)
         drawChartScore('chart_score', read)
         drawChartBytes('chart_bytes', read)
         drawChartTimings('chart_timings', read)
