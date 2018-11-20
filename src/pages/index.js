@@ -59,7 +59,6 @@ class IndexPage extends React.Component {
               type="file"
               id="fileElem"
               multiple
-              accept=".json"
               onChange={e => this.handleFiles(e.target.files)}
             />
             <label className="button" htmlFor="fileElem">
