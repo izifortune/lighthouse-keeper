@@ -2,10 +2,9 @@ import { map, pipe } from 'ramda'
 
 import {
   firstMeaningfulPaint,
-  firstInteractive,
-  visuallyComplete,
-  firstVisualChange,
-  jsParseCompile,
+  firstCpuIdle,
+  firstContentfulPaint,
+  bootupTime,
   timeToFirstByte,
 } from './mapping-timings'
 import { minList, off } from './utils'
@@ -19,16 +18,14 @@ const budget = pipe(
 
 export const dataTimings = reports => {
   const listFirstMeaningfulPaint = map(firstMeaningfulPaint, reports)
-  const listFirstVisualChange = map(firstVisualChange, reports)
-  const listFirstInteractive = map(firstInteractive, reports)
-  const listVisuallyComplete = map(visuallyComplete, reports)
+  const listFirstContentfulPaint = map(firstContentfulPaint, reports)
+  const listCpuIdle = map(firstCpuIdle, reports)
   const listTimeToFirstByte = map(timeToFirstByte, reports)
-  const listJsParseCompile = map(jsParseCompile, reports)
+  const listJsParseCompile = map(bootupTime, reports)
 
   const budgetFirstMeaningfulPaint = budget(listFirstMeaningfulPaint)
-  const budgetFirstVisualChange = budget(listFirstVisualChange)
-  const budgetFirstInteractive = budget(listFirstInteractive)
-  const budgetVisuallyComplete = budget(listVisuallyComplete)
+  const budgetFirstContentfulPaint = budget(listFirstContentfulPaint)
+  const budgetCpuIdle = budget(listCpuIdle)
   const budgetTimeToFirstByte = budget(listTimeToFirstByte)
   const budgetJsParseCompile = budget(listJsParseCompile)
 
@@ -39,19 +36,14 @@ export const dataTimings = reports => {
       budgetFirstMeaningfulPaint,
     ],
     [
-      `First Visual Change\n ${budgetFirstVisualChange}`,
-      ...listFirstVisualChange,
-      budgetFirstVisualChange,
+      `First Contentful Paint\n ${budgetFirstContentfulPaint}`,
+      ...listFirstContentfulPaint,
+      budgetFirstContentfulPaint,
     ],
     [
-      `First Interactive\n ${budgetFirstInteractive}`,
-      ...listFirstInteractive,
-      budgetFirstInteractive,
-    ],
-    [
-      `Visually Complete\n ${budgetVisuallyComplete}`,
-      ...listVisuallyComplete,
-      budgetVisuallyComplete,
+      `CpuIdle\n ${budgetCpuIdle}`,
+      ...listCpuIdle,
+      budgetCpuIdle,
     ],
     [
       `Time to first byte\n ${budgetTimeToFirstByte}`,
@@ -59,7 +51,7 @@ export const dataTimings = reports => {
       budgetTimeToFirstByte,
     ],
     [
-      `JS Parse & Compile\n ${budgetJsParseCompile}`,
+      `Bootup Time\n ${budgetJsParseCompile}`,
       ...listJsParseCompile,
       budgetJsParseCompile,
     ],
@@ -77,13 +69,13 @@ export const dataTimings = reports => {
 //         minList,
 //         off
 //     ),
-//   firstInteractive: pipe(
-//         map(firstInteractive),
+//   firstContentfulPaint: pipe(
+//         map(firstContentfulPaint),
 //         minList,
 //         off
 //     ),
-//   visuallyComplete: pipe(
-//         map(visuallyComplete),
+//   firstCpuIdle: pipe(
+//         map(firstCpuIdle),
 //         minList,
 //         off
 //     ),

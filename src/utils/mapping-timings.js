@@ -6,10 +6,21 @@ export const firstMeaningfulPaint = pipe(
   audits,
   path(['first-meaningful-paint', 'rawValue'])
 ) //ms
-export const firstInteractive = pipe(
+
+export const firstCpuIdle = pipe(
   audits,
-  path(['first-interactive', 'rawValue'])
-) //ms
+  path(['first-cpu-idle', 'rawValue'])
+)
+
+export const firstContentfulPaint = pipe(
+  audits,
+  path(['first-contentful-paint', 'rawValue'])
+)
+
+export const bootupTime = pipe(
+  audits,
+  path(['bootup-time', 'rawValue'])
+)
 
 const speedIndexMetricTimings = path([
   'speed-index-metric',
@@ -17,16 +28,6 @@ const speedIndexMetricTimings = path([
   'value',
   'timings',
 ])
-export const visuallyComplete = pipe(
-  audits,
-  speedIndexMetricTimings,
-  prop('visuallyComplete')
-) //ms
-export const firstVisualChange = pipe(
-  audits,
-  speedIndexMetricTimings,
-  prop('firstVisualChange')
-) //ms
 
 const mainthreadWorkBreakdownExtendedInfo = path([
   'mainthread-work-breakdown',
@@ -50,11 +51,6 @@ export const minorGC = pipe(
   prop('Minor GC')
 )
 
-export const jsParseCompile = converge((...args) => sum(args), [
-  evaluateScript,
-  compileScript,
-  minorGC,
-])
 export const timeToFirstByte = pipe(
   audits,
   path(['time-to-first-byte', 'rawValue'])
