@@ -25,7 +25,7 @@ export const domainTransducer = compose(
       split('/'),
       nth(2)
     )
-  ),
+  )
 )
 
 export const addDownloadImage = (chart, idDownload) => {
@@ -81,7 +81,7 @@ export const readFiles = async files =>
           reader.onload = () => {
             try {
               const result = JSON.parse(reader.result)
-              res(result.lhr)
+              res(result)
             } catch (e) {
               rej(e)
             }
