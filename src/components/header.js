@@ -26,7 +26,7 @@ const Header = ({ siteTitle, location }) => {
               textDecoration: 'none',
             }}
           >
-            {siteTitle} {isHomepage ? 'v3' : 'v2'}
+            {siteTitle} {isHomepage ? 'v4' : 'v2'}
           </Link>
         </h1>
         {isHomepage ? (
