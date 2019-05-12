@@ -26,51 +26,55 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-bf58a6c4b4417dc0421c.js"
+    "url": "webpack-runtime-ac9979f1ac15346c4615.js"
   },
   {
-    "url": "app-5fd5e9a85ca285cc774e.js"
+    "url": "app-7a266f0ef53ebd7be6e4.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-0691004cd9de246c1542.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-71711f3fcf4a9e293ed9.js"
   },
   {
     "url": "index.html",
-    "revision": "e64e56ead568404ada635b45cee75dcf"
+    "revision": "ef40b44af1b940473f96b4338389d060"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "c35e0219bda0e45f707148f840c35890"
+    "revision": "02944e06f97da558c3bf759ad9654188"
   },
   {
-    "url": "component---src-pages-index-js.d2bdb62781c644a371a8.css"
+    "url": "styles.d2bdb62781c644a371a8.css"
   },
   {
-    "url": "0-51b0215078c7dba2286e.js"
+    "url": "styles-418033097879e564b026.js"
   },
   {
-    "url": "7-5a97994d37ce4f3250e2.js"
+    "url": "1-2e8b1391cddd0a4c108c.js"
   },
   {
-    "url": "component---src-pages-index-js-55e75eeb938cd755f19a.js"
+    "url": "9-bb94515212f2b0ac1c2a.js"
   },
   {
-    "url": "static/d/425/path---index-6a9-JV2kT1IGh7pwje0PgHwKn4vZZeI.json",
-    "revision": "54696d04f0952c9dc50b0b5aa24a3dc9"
+    "url": "component---src-pages-index-js-a05db79bc2e522cbaf0c.js"
   },
   {
-    "url": "component---src-pages-404-js.d2bdb62781c644a371a8.css"
+    "url": "static/d/219/path---index-6a9-B8DQzTO7wRdbMXQTeYpCZERzL4.json",
+    "revision": "41b24c49d170af66e74b88ca82ac0712"
   },
   {
-    "url": "component---src-pages-404-js-d7edd04780e79e6c090d.js"
+    "url": "component---src-pages-404-js-70f5ba7ccdb1a52e27b5.js"
   },
   {
-    "url": "static/d/164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E.json",
-    "revision": "c2508676a2f33ea9f1f0bf472997f9a0"
+    "url": "static/d/285/path---404-html-516-62a-0SUcWyAf8ecbYDsMhQkEfPzV8.json",
+    "revision": "02094403799cfe9d216f51de06d00d63"
   },
   {
-    "url": "static/d/520/path---offline-plugin-app-shell-fallback-a-30-c5a-NZuapzHg3X9TaN1iIixfv1W23E.json",
-    "revision": "c2508676a2f33ea9f1f0bf472997f9a0"
+    "url": "static/d/604/path---offline-plugin-app-shell-fallback-a-30-c5a-BawJvyh36KKFwbrWPg4a4aYuc8.json",
+    "revision": "e0f3b054b6dcf2c5a113801b73f75867"
+  },
+  {
+    "url": "manifest.webmanifest",
+    "revision": "55a9292126f8836e91e5d40b0a8cb54f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
