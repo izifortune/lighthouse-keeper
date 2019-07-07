@@ -1,11 +1,5 @@
 import { map, pipe } from 'ramda'
-import {
-  reportCategoriesPerfScore,
-  reportCategoriesPWAScore,
-  reportCategoriesAccessibilityScore,
-  reportCategoriesBestpracticeScore,
-  reportCategoriesSEOScore,
-} from './mapping-score'
+import { reportCategoriesScore } from './mapping-score'
 
 import { maxList } from './utils'
 
@@ -16,11 +10,11 @@ const budgetMax = pipe(
 )
 
 export default function dataScore(reports) {
-  const listPerf = map(reportCategoriesPerfScore, reports)
-  const listPWA = map(reportCategoriesPWAScore, reports)
-  const listBestPractice = map(reportCategoriesBestpracticeScore, reports)
-  const listAccessibility = map(reportCategoriesAccessibilityScore, reports)
-  const listSEO = map(reportCategoriesSEOScore, reports)
+  const listPerf = map(reportCategoriesScore('performance'), reports)
+  const listPWA = map(reportCategoriesScore('pwa'), reports)
+  const listBestPractice = map(reportCategoriesScore('best-practices'), reports)
+  const listAccessibility = map(reportCategoriesScore('accessibility'), reports)
+  const listSEO = map(reportCategoriesScore('seo'), reports)
 
   const budgetPerf = budgetMax(listPerf)
   const budgetPWA = budgetMax(listPWA)
