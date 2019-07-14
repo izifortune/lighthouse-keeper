@@ -1,15 +1,9 @@
 import { map, pipe } from 'ramda'
 
-import {
-  firstMeaningfulPaint,
-  firstCpuIdle,
-  firstContentfulPaint,
-  bootupTime,
-  timeToFirstByte,
-} from './mapping-timings'
+import { reportAuditRawValue } from './mapping-timings'
 import { minList, off } from './utils'
 
-const budget = pipe(
+const budgetMin = pipe(
   minList,
   off,
   n => n.toFixed(2),
@@ -17,45 +11,19 @@ const budget = pipe(
 )
 
 export const dataTimings = reports => {
-  const listFirstMeaningfulPaint = map(firstMeaningfulPaint, reports)
-  const listFirstContentfulPaint = map(firstContentfulPaint, reports)
-  const listCpuIdle = map(firstCpuIdle, reports)
-  const listTimeToFirstByte = map(timeToFirstByte, reports)
-  const listJsParseCompile = map(bootupTime, reports)
-
-  const budgetFirstMeaningfulPaint = budget(listFirstMeaningfulPaint)
-  const budgetFirstContentfulPaint = budget(listFirstContentfulPaint)
-  const budgetCpuIdle = budget(listCpuIdle)
-  const budgetTimeToFirstByte = budget(listTimeToFirstByte)
-  const budgetJsParseCompile = budget(listJsParseCompile)
-
-  return [
-    [
-      `First MeaningfulPaint\n ${budgetFirstMeaningfulPaint}`,
-      ...listFirstMeaningfulPaint,
-      budgetFirstMeaningfulPaint,
-    ],
-    [
-      `First Contentful Paint\n ${budgetFirstContentfulPaint}`,
-      ...listFirstContentfulPaint,
-      budgetFirstContentfulPaint,
-    ],
-    [
-      `CpuIdle\n ${budgetCpuIdle}`,
-      ...listCpuIdle,
-      budgetCpuIdle,
-    ],
-    [
-      `Time to first byte\n ${budgetTimeToFirstByte}`,
-      ...listTimeToFirstByte,
-      budgetTimeToFirstByte,
-    ],
-    [
-      `Bootup Time\n ${budgetJsParseCompile}`,
-      ...listJsParseCompile,
-      budgetJsParseCompile,
-    ],
-  ]
+  const timingsData = ([auditName, title]) => {
+    const values = map(reportAuditRawValue(auditName), reports)
+    const budget = budgetMin(values)
+    return [`${title}\n ${budget}`, ...values, budget]
+  }
+  
+  return map(timingsData, [
+    ['first-meaningful-paint', 'First Meaningful Paint'],
+    ['first-contentful-paint', 'First Contentful Paint'],
+    ['first-cpu-idle', 'CpuIdle'],
+    ['time-to-first-byte', 'Time to first byte'],
+    ['bootup-time', 'Bootup Time']
+  ]);
 }
 
 // export const budgetTimings = ({
