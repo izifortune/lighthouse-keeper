@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Fabrizio Fortunato <fortune@cortesconta.net>",
   "dependencies": {
-    "gatsby": "^2.4.3",
+    "gatsby": "^5.3.3",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
